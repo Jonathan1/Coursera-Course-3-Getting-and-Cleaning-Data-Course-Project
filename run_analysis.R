@@ -73,8 +73,6 @@ combinedDataSet <- cbind(dataSetX, dataSetY, dataSetSubject)
 #		  the average of each variable for each activity and each subject
 #---------------------------------------------------------------------------------------
 
-# 66 <- 68 columns but last two (activity & subject)
-# 68 columns (with activity & subject) -> 66 columns
 tidyDataSet <- ddply(combinedDataSet, .(subject, activity), function(x) colMeans(x[, 1:66]))
 
 write.table(tidyDataSet, "tidy_data_set.txt", row.name=FALSE)
